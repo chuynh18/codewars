@@ -199,13 +199,13 @@ const modulo = function(a, b) {
         // console.log(a, paddedB);
 
         while (compare(modulo, b) === 1) {
-            // console.log(`modulo: '${modulo}', b: '${b}'`)
+            console.log(`modulo: '${modulo}', b: '${b}'`)
             if (compare(modulo, paddedB) === 2) {
                 paddedB = divideby10(paddedB);
-                // console.log(`paddedB reduced to '${paddedB}'`);
+                console.log(`paddedB reduced to '${paddedB}'`);
             } else if (compare(modulo, paddedB) === 1) {
                 modulo = subtract(modulo, paddedB);
-                // console.log(`performing subtraction, modulo is now '${modulo}' and paddedB is '${paddedB}'`);
+                console.log(`performing subtraction, modulo is now '${modulo}' and paddedB is '${paddedB}'`);
             } else if (compare(modulo, paddedB) === 0) {
                 return "0";
             }
@@ -215,4 +215,4 @@ const modulo = function(a, b) {
     }
 }
 
-console.log(modulo("12345678912345679872","987654321"));
+console.log(modulo("03","6"));

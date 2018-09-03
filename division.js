@@ -24,8 +24,252 @@ function largeDiv(a, b) {
     let numeratorIsLarger;
     let onDigit = 0;
 
+    // helper functions to perform modulo operation
+    // restrictions:
+    // inputs must not be padded.
+    // inputs must be natural numbers (non-negative!) as strings
+
+    // the division function will (hopefully) only feed arguments that
+    // observe the restrictions laid out above.  I HOPE
+
+    // returns 0 if a === b, 1 if a > b, 2 if a < b
+    // typeof a === "string",  typeof b === "string"
+    const compare = function(a, b) {
+        if (a.length > b.length) {
+            return 1;
+        } else if (b.length > a.length) {
+            return 2;
+        } else if (a.length === b.length) {
+            if (a === b) {
+                return 0;
+            } else {
+                for (let i = 0; i < a.length; i++) {
+                    if (parseInt(a[i]) > parseInt(b[i])) {
+                        return 1;
+                    } else if (parseInt(a[i]) < parseInt(b[i])) {
+                        return 2;
+                    }
+                }
+            }
+        }
+    }
+
+    // subtract arbitrarily large natural numbers (NO NEGATIVES)
+    // necessary for implementing modulo operator
+    // returns a - b as string.  typeof a === "string",  typeof b === "string"
+    const subtract = function(a, b) {
+        let output = "";
+        let aLargerOrEqual;
+        let outputIsNegative = false;
+
+        const leftPadZero = function(input, numPad) {
+            // console.log(`left padding '${input}' with ${numPad} zeroes`);
+            let output = input;
+        
+            for (let i = 0; i < numPad; i++) {
+                output = "0" + output;
+            }
+        
+            // console.log(`output is now: '${output}'`);
+        
+            return output;
+        }
+
+        if (a.length > b.length) {
+            // console.log("a.length > b.length");
+            aLargerOrEqual = true;
+            b = leftPadZero(b, a.length-b.length);
+        } else if (b.length > a.length) {
+            // console.log("a.length < b.length");
+            aLargerOrEqual = false;
+            a = leftPadZero(a, b.length-a.length);
+        } else if (a.length === b.length) {
+            // console.log("a.length === b.length");
+            if (a === b) {
+                // console.log("a === b");
+                aLargerOrEqual = true;
+            } else {
+                for (let i = 0; i < a.length; i++) {
+                    if (parseInt(a[i]) > parseInt(b[i])) {
+                        aLargerOrEqual = true;
+                        break;
+                    } else if (parseInt(a[i]) < parseInt(b[i])) {
+                        aLargerOrEqual = false;
+                        break;
+                    }
+                }
+            }
+        }
+
+        if (!aLargerOrEqual) {
+            [a, b] = [b, a];
+            outputIsNegative = true;
+        }
+
+        // console.log(`subtracting ${a} from ${b}`);
+
+        let carried = false;
+
+        for (let i = a.length - 1; i >= 0; i--) {
+            if (typeof b[i] === "undefined") {
+                // console.log("path 1");
+                if (carried) {
+                    output = a[i] + output;
+                } else if (!carried) {
+                    output = (parseInt(a[i]) - 1) + output;
+                }
+
+                carried = false;
+            } else if (parseInt(a[i]) > parseInt(b[i])) {
+                // console.log("path 2");
+                if (carried) {
+                    output = (parseInt(a[i]) - 1 - parseInt(b[i])) + output;
+                } else if (!carried) {
+                    output = (parseInt(a[i]) - parseInt(b[i])) + output;
+                }
+
+                carried = false;
+            } else if (parseInt(a[i]) === parseInt(b[i])) {
+                // console.log("path 3");
+                if (carried) {
+                    output = "9" + output;
+                    carried = true;
+                } else if (!carried) {
+                    output = "0" + output;
+                    carried = false;
+                }
+            } else if (parseInt(a[i]) < parseInt(b[i])) {
+                // console.log("path 4");
+                if (carried) {
+                    output = (parseInt(a[i]) + 9 - parseInt(b[i])) + output;
+                } else if (!carried) {
+                    output = (parseInt(a[i]) + 10 - parseInt(b[i])) + output;
+                }
+
+                carried = true;
+            }
+
+            // console.log(`i: '${i}', output so far: '${output}'`);
+        }
+
+        // strip leading zeroes
+        let nonZeroFound = false;
+        let newOutput = "";
+        for (let i = 0; i < output.length; i++) {
+            if (!nonZeroFound && output[i] !== "0") {
+                nonZeroFound = true;
+                newOutput += output[i];
+            } else if (nonZeroFound) {
+                newOutput += output[i];
+            }
+        }
+
+        output = newOutput;
+
+        if (outputIsNegative) {
+            output = "-" + output;
+        }
+
+        if (output === "" || output === "-") {
+            return "0";
+        }
+
+        return output;
+    }
+
+    // modulo operator.  if b > a, returns a as a string.
+    // else, returns the remainder (also as a string)
+    // typeof a === "string",  typeof b === "string" 
+    const modulo = function(a, b) {
+        let allZeroes = true;
+        let indexOfFirstNonZero;
+        let fixedA = "";
+        console.log(`modulo function value of a: '${a}'`);
+
+        for (let i = 0; i < a.length; i++) {
+            if (a[i] !== "0") {
+                allZeroes = false;;
+                indexOfFirstNonZero = i;
+                break;
+            }
+        }
+
+        if (allZeroes) {
+            return "0";
+        }
+
+        if (indexOfFirstNonZero > 0) {
+            for (let i = indexOfFirstNonZero; i < a.length; i++) {
+                fixedA += a[i];
+            }
+
+            a = fixedA;
+        }
+
+        if (b === "0") {
+            console.log("modulo function got passed b === 0");
+            return NaN;
+        }
+
+        if (typeof a !== "string" || typeof b !== "string") {
+            console.log("check yourself before you wreck yourself.  a or b not string");
+        }
+
+        // console.log(`a: ${a}, b: ${b}`);
+
+        const rightPadZero = function(input, numZero) {
+            let output = input;
+            
+            for (let i = 0; i < numZero; i++) {
+                output += "0";
+            }
+        
+            return output;
+        }
+
+        const divideby10 = function(input) {
+            let output = "";
+
+            for (let i = 0; i < input.length - 1; i++) {
+                output += input[i];
+            }
+
+            return output;
+        }
+
+        // console.log(`compare(a, b): ${compare(a, b)}`);
+
+        if (compare(a, b) === 0) {
+            // console.log("a and b are equal");
+            return "0";
+        } else if (compare(a, b) === 2) {
+            // console.log('b greater than a');
+            return a;
+        } else if (compare(a, b) === 1) {
+            let modulo = a;
+            let paddedB = rightPadZero(b, a.length-b.length);
+
+            // console.log(a, paddedB);
+
+            while (compare(modulo, b) === 1) {
+                // console.log(`modulo: '${modulo}', b: '${b}'`)
+                if (compare(modulo, paddedB) === 2) {
+                    paddedB = divideby10(paddedB);
+                    // console.log(`paddedB reduced to '${paddedB}'`);
+                } else if (compare(modulo, paddedB) === 1) {
+                    modulo = subtract(modulo, paddedB);
+                    // console.log(`performing subtraction, modulo is now '${modulo}' and paddedB is '${paddedB}'`);
+                } else if (compare(modulo, paddedB) === 0) {
+                    return "0";
+                }
+            }
+
+            return modulo;
+        }
+    }
+
     // checks for some simple cases where involved computation won't be necessary
-    if ((parseFloat(a)/parseFloat(b)) % 1 === 0 && parseFloat(a) < 100000000) {
+    if ((parseFloat(a)/parseFloat(b)) % 1 === 0 && parseFloat(a) < 999999999999999 && parseFloat(b) < 999999999999999) {
         return `${a/b}`; // if a/b is an integer, just use computer arithmetic
     } else if (parseFloat(b) === 0) {
         throw new Error('Illegal operation:  Divide by zero.');  // no dividing by zero!
@@ -125,10 +369,32 @@ function largeDiv(a, b) {
         return input + zeroString;
     }
 
+    const removeLeftPaddedZeroes = function(input) {
+        let indexOfFirstNonZero;
+        let output = "";
+
+        for (let i = 0; i < input.length; i++) {
+            if (input[i] !== "0") {
+                indexOfFirstNonZero = i;
+                break;
+            }
+        }
+
+        if (indexOfFirstNonZero === 0) {
+            return input;
+        } else if (indexOfFirstNonZero > 0) {
+            for (let i = indexOfFirstNonZero; i < input.length; i++) {
+                output += input[i];
+            }
+        }
+
+        return output;
+    }
+
     let aDecimals = handleDecimals(a);
     let bDecimals = handleDecimals(b);
 
-    // console.log(`aDecimals: '${aDecimals}', bDecimals: '${bDecimals}'`);
+    console.log(`aDecimals: '${aDecimals}', bDecimals: '${bDecimals}'`);
 
     if (aDecimals === 0 && bDecimals === 0) {
         // console.log("No decimals found.  Moving on...");
@@ -145,7 +411,10 @@ function largeDiv(a, b) {
         // console.log(`b-a is '${b-a}'`);
     }
 
-    // console.log(`a as int: '${a}', b as int: '${b}'`);
+    a = removeLeftPaddedZeroes(a);
+    b = removeLeftPaddedZeroes(b);
+
+    console.log(`a as int: '${a}', b as int: '${b}'`);
 
     // otherwise, perform division like a human would
     if (parseInt(a) > parseInt(b)) {
@@ -161,12 +430,19 @@ function largeDiv(a, b) {
         console.log(`newA: '${newA}'`);
 
         let num = newA/b;
-        // console.log(`num: '${num}'`);
+        console.log(`num: '${num}'`);
         output += `${parseInt(num)}`;
-        remainder = newA % b;
-        console.log(`remainder: '${remainder}'`);
+
+
+        // modulo fix???
+        // remainder = newA % b;
+        remainder = modulo(newA, b);
+
+
+
+        // console.log(`remainder: '${remainder}'`);
         // console.log(`onDigit: '${onDigit}'`);
-        // console.log(`output so far: '${output}'`);
+        console.log(`output so far: '${output}'`);
 
         if (!a[onDigit+1]) {
             numeratorIsLarger = false;
@@ -176,7 +452,16 @@ function largeDiv(a, b) {
         numeratorIsLarger = false;
         // console.log(`a < b:  ${a} < ${b}`);
         output += `0.${Math.floor(10*a/b)}`;
-        remainder = (10*a) % b;
+
+
+
+        // modulo fix???
+        // remainder = (10*a) % b;
+
+        remainder = modulo((a+"0"), b);
+
+
+
         // console.log(`remainder: '${remainder}'`)
     } else if (a === b) {
         // if a === b, just return 1 as a string
@@ -185,34 +470,50 @@ function largeDiv(a, b) {
 
 
     // console.log(`remainder: ${remainder}`);
+    let somethingHappened = false;
 
-    while (output.length < 1000) {
+    while (output.length < 500) {
 
-        // console.log(`output so far: '${output}'`);
-        if (remainder < b && !numeratorIsLarger) {
-            remainder *= 10;
+        console.log(`output so far: '${output}'`);
+        if (compare(remainder.toString(), b.toString()) === 2 && !numeratorIsLarger) {
+            console.log(`remainder before tacking on the digit: ${remainder}`);
+            remainder = remainder + "0";
             // console.log(`remainder < divisor; remainder * 10 = '${remainder}'`);
-        } else if (remainder < b && numeratorIsLarger) {
+        } else if (compare(remainder.toString(), b.toString()) === 2 && numeratorIsLarger) {
             onDigit++;
             if (a[onDigit]) {
-                remainder = parseInt(remainder + a[onDigit]);
+                console.log(`onDigit: '${onDigit}', a[onDigit]: '${a[onDigit]}'`);
+                console.log(`remainder before tacking on the digit: ${remainder}`);
+                remainder = remainder.toString() + a[onDigit];
             } else if (!a[onDigit]) {
                 numeratorIsLarger = false;
                 output += ".";
-                if (remainder < b && !numeratorIsLarger) {
-                    remainder *= 10;
+                if (compare(remainder.toString(), b.toString()) === 2 && !numeratorIsLarger) {
+                    remainder = remainder + "0";
                 }
             }
 
             // console.log(`output so far: '${output}'`);
             // console.log(`remainder: '${remainder}'`);
+        } else {
+            console.log("something else is happening");
+            console.log(`compare: '${compare(remainder.toString(), b.toString())}'`);
+            remainder = 0;
+            somethingHappened = true;
         }
 
         let num = Math.floor(remainder/b);
         // console.log(`remainder: ${remainder}`);
-        // console.log(`remainder: '${remainder}', divisor: '${b}', num: '${num}'`);
-        output += num;
-        remainder = remainder % b;
+        console.log(`remainder: '${remainder}', divisor (b): '${b}', num: '${num}'`);
+        if (!somethingHappened) {
+            output += num;
+        } else if (somethingHappened) {
+            somethingHappened = false;
+        }
+        
+        remainder = modulo(remainder, b);
+        console.log(`remainder after modulo: '${remainder}'`);
+        console.log();
     }
 
     // add negative sign back in
@@ -220,7 +521,7 @@ function largeDiv(a, b) {
         output = "-" + output;
     }
 
-    // console.log(`computed to 50 characters excluding "-" char: "${output}"`);
+    console.log(`output: "${output}"`);
     
     // truncate the output to 20 decimals
     if (handleDecimals(output) !== 0) {
@@ -280,4 +581,10 @@ function largeDiv(a, b) {
     return output;
 }
 
-console.log(largeDiv("5886774746463746757476376837846287120091288837821910924857876852102369847258741225", "563259871238569745258745"));
+// console.log(largeDiv("5886774746463746757476376837846287120091288837821910924857876852102369847258741225", "563259871238569745258745"));
+// console.log(largeDiv("1000000000000000000000000000000000000000000000000000000000000000000000000000000000", "100000000000000000000000"));
+// console.log(largeDiv("63", "6"));
+// console.log(largeDiv("0.01", "0.003"));
+// console.log(largeDiv("10", "3"));
+// console.log(largeDiv("9999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999998", "2"));
+console.log(largeDiv("0.00005601738843121489", "0.014833469638891051249761810510689427222312310102108282245106653363"));
