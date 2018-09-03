@@ -11,12 +11,12 @@
 // Program assumptions:
 // Input can be integer, negative, zero, or decimal in string format.
 // Input won't have leading or trailing zeroes.
-// Output will be truncated, not rounded, to 20 decimal places
+// Output will be truncated, not rounded, to 20 decimal places (or fewer if 20's unnecessary)
 
 "use strict";
 
 function largeDiv(a, b) {
-    console.log();
+    // console.log();
     console.log(`Computing: '${a}/${b}'`);
     let output = "";
     let remainder;
@@ -184,7 +184,7 @@ function largeDiv(a, b) {
         let allZeroes = true;
         let indexOfFirstNonZero;
         let fixedA = "";
-        console.log(`modulo function value of a: '${a}'`);
+        // console.log(`modulo function value of a: '${a}'`);
 
         for (let i = 0; i < a.length; i++) {
             if (a[i] !== "0") {
@@ -207,12 +207,12 @@ function largeDiv(a, b) {
         }
 
         if (b === "0") {
-            console.log("modulo function got passed b === 0");
+            // console.log("modulo function got passed b === 0");
             return NaN;
         }
 
         if (typeof a !== "string" || typeof b !== "string") {
-            console.log("check yourself before you wreck yourself.  a or b not string");
+            // console.log("check yourself before you wreck yourself.  a or b not string");
         }
 
         // console.log(`a: ${a}, b: ${b}`);
@@ -394,7 +394,7 @@ function largeDiv(a, b) {
     let aDecimals = handleDecimals(a);
     let bDecimals = handleDecimals(b);
 
-    console.log(`aDecimals: '${aDecimals}', bDecimals: '${bDecimals}'`);
+    // console.log(`aDecimals: '${aDecimals}', bDecimals: '${bDecimals}'`);
 
     if (aDecimals === 0 && bDecimals === 0) {
         // console.log("No decimals found.  Moving on...");
@@ -414,7 +414,7 @@ function largeDiv(a, b) {
     a = removeLeftPaddedZeroes(a);
     b = removeLeftPaddedZeroes(b);
 
-    console.log(`a as int: '${a}', b as int: '${b}'`);
+    // console.log(`a as int: '${a}', b as int: '${b}'`);
 
     // otherwise, perform division like a human would
     if (parseInt(a) > parseInt(b)) {
@@ -427,22 +427,17 @@ function largeDiv(a, b) {
             onDigit++;
         }
         
-        console.log(`newA: '${newA}'`);
+        // console.log(`newA: '${newA}'`);
 
         let num = newA/b;
-        console.log(`num: '${num}'`);
+        // console.log(`num: '${num}'`);
         output += `${parseInt(num)}`;
 
-
-        // modulo fix???
-        // remainder = newA % b;
         remainder = modulo(newA, b);
-
-
 
         // console.log(`remainder: '${remainder}'`);
         // console.log(`onDigit: '${onDigit}'`);
-        console.log(`output so far: '${output}'`);
+        // console.log(`output so far: '${output}'`);
 
         if (!a[onDigit+1]) {
             numeratorIsLarger = false;
@@ -453,14 +448,7 @@ function largeDiv(a, b) {
         // console.log(`a < b:  ${a} < ${b}`);
         output += `0.${Math.floor(10*a/b)}`;
 
-
-
-        // modulo fix???
-        // remainder = (10*a) % b;
-
         remainder = modulo((a+"0"), b);
-
-
 
         // console.log(`remainder: '${remainder}'`)
     } else if (a === b) {
@@ -468,22 +456,21 @@ function largeDiv(a, b) {
         return "1";
     }
 
-
     // console.log(`remainder: ${remainder}`);
     let somethingHappened = false;
 
     while (output.length < 500) {
 
-        console.log(`output so far: '${output}'`);
+        // console.log(`output so far: '${output}'`);
         if (compare(remainder.toString(), b.toString()) === 2 && !numeratorIsLarger) {
-            console.log(`remainder before tacking on the digit: ${remainder}`);
+            // console.log(`remainder before tacking on the digit: ${remainder}`);
             remainder = remainder + "0";
             // console.log(`remainder < divisor; remainder * 10 = '${remainder}'`);
         } else if (compare(remainder.toString(), b.toString()) === 2 && numeratorIsLarger) {
             onDigit++;
             if (a[onDigit]) {
-                console.log(`onDigit: '${onDigit}', a[onDigit]: '${a[onDigit]}'`);
-                console.log(`remainder before tacking on the digit: ${remainder}`);
+                // console.log(`onDigit: '${onDigit}', a[onDigit]: '${a[onDigit]}'`);
+                // console.log(`remainder before tacking on the digit: ${remainder}`);
                 remainder = remainder.toString() + a[onDigit];
             } else if (!a[onDigit]) {
                 numeratorIsLarger = false;
@@ -496,15 +483,15 @@ function largeDiv(a, b) {
             // console.log(`output so far: '${output}'`);
             // console.log(`remainder: '${remainder}'`);
         } else {
-            console.log("something else is happening");
-            console.log(`compare: '${compare(remainder.toString(), b.toString())}'`);
+            // console.log("something else is happening");
+            // console.log(`compare: '${compare(remainder.toString(), b.toString())}'`);
             remainder = 0;
             somethingHappened = true;
         }
 
-        let num = Math.floor(remainder/b);
+        // let num = Math.floor(remainder/b);
         // console.log(`remainder: ${remainder}`);
-        console.log(`remainder: '${remainder}', divisor (b): '${b}', num: '${num}'`);
+        // console.log(`remainder: '${remainder}', divisor (b): '${b}', num: '${num}'`);
         if (!somethingHappened) {
             output += num;
         } else if (somethingHappened) {
@@ -512,8 +499,8 @@ function largeDiv(a, b) {
         }
         
         remainder = modulo(remainder, b);
-        console.log(`remainder after modulo: '${remainder}'`);
-        console.log();
+        // console.log(`remainder after modulo: '${remainder}'`);
+        // console.log();
     }
 
     // add negative sign back in
@@ -521,7 +508,7 @@ function largeDiv(a, b) {
         output = "-" + output;
     }
 
-    console.log(`output: "${output}"`);
+    // console.log(`output: "${output}"`);
     
     // truncate the output to 20 decimals
     if (handleDecimals(output) !== 0) {
@@ -587,4 +574,4 @@ function largeDiv(a, b) {
 // console.log(largeDiv("0.01", "0.003"));
 // console.log(largeDiv("10", "3"));
 // console.log(largeDiv("9999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999998", "2"));
-console.log(largeDiv("0.00005601738843121489", "0.014833469638891051249761810510689427222312310102108282245106653363"));
+// console.log(largeDiv("0.00005601738843121489", "0.014833469638891051249761810510689427222312310102108282245106653363"));
