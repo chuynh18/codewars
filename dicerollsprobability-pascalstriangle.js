@@ -1,9 +1,9 @@
 // https://www.codewars.com/kata/55d18ceefdc5aba4290000e5 4 kyu
 
-// this solution is essentially the same as the brute force
-// probability table is calculated using a variation of
-// Pascal's triangle instead of using brute force, so this
-// is several orders of magnitude faster
+// this solution is essentially the same as the brute force one.
+// The probability table is calculated using a variation of
+// Pascal's triangle instead of using brute force, so this is
+// several orders of magnitude faster
 
 // Pascal's triangle info http://curiouscheetah.com/BlogMath/pascals-triangle-and-dice-rolls/
 
