@@ -40,4 +40,5 @@ My CodeWars profile:  [https://www.codewars.com/users/chuynh18/completed](https:
     * This was my third kata and I was still warming up and finding the appropriate degree of difficulty.
 * [twiceasold.js](https://www.codewars.com/kata/5b853229cfde412a470000d0) - 8 kyu
     * My first kata, solved on a whim because a friend sent it to me.
+    * Purely a math problem.  I solved this in the GIMP by doing elementary algebra.  You have three variables that turn into one variable (because the age of the father and son are the inputs).  This means you have one equation and one variable.
     * I am extremely disappointed in this kata; it demands a positive answer.  I believe this makes the answer incorrect from a mathematical perspective.  The sign is important; it denotes whether the father either *was* or *will be* twice the age of the son.
