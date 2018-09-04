@@ -9,6 +9,9 @@ My CodeWars profile:  [https://www.codewars.com/users/chuynh18/completed](https:
     * A lot of hacky conditionals in my solution.  If the test cases were more expansive, I would probably need to rethink my approach.
 * [calc.js](https://www.codewars.com/kata/5235c913397cbf2508000048) - 3 kyu
     * So much parsing.  Maybe I should start digging into how compilers work.
+* [commondenominators.js](https://www.codewars.com/kata/54d7660d2daf68c619000d95) - 5 kyu
+    * A g964 special, so the question isn't written as clearly as it could have been, in my humble opinion.
+    * My solution is hacky.  I don't know if it will work for all possible inputs.  It worked when I submitted it, though!  I'll take it.
 * [connect4.js](https://www.codewars.com/kata/56882731514ec3ec3d000009) - 4 kyu
     * A very wordy solution to a Connect 4 solver.  I admit to not reading the problem statement before coding, and so a lot of revisions were required to get to a working solution.  This wasted work would not have been required had I took some time to digest the problem.  This is a great reminder to slow down, digest the problem, deeply understand what is and isn't being asked... only then should code be written.
     * I took this on because I already have written Connect 4; you can find it here: [https://chuynh18.github.io/fourinarow/](https://chuynh18.github.io/fourinarow/)
@@ -36,6 +39,8 @@ My CodeWars profile:  [https://www.codewars.com/users/chuynh18/completed](https:
     * In my opinion, my solution is incredibly ugly and only passed because the test cases for this kata aren't very comprehensive.
 * [rgbtohex.js](https://www.codewars.com/kata/513e08acc600c94f01000001) - 5 kyu
     * My solution solves for the problem presented and nothing more.
+* [rot13.js](https://www.codewars.com/kata/530e15517bc88ac656000716) - 5 kyu
+    * Not the most elegant solution.  I see a lot of other people solved this pretty creatively and/or using regex.  Still, I used the `String.fromCharCode()` method.  How many times do you get to use that method‽  How many times do you get to use the interrobang‽
 * [sumbignums.js](https://www.codewars.com/kata/5324945e2ece5e1f32000370) - 4 kyu
     * Kind of took advantage of there being [another kata that's almost exactly the same](https://www.codewars.com/kata/525f4206b73515bffb000b21).  I don't remember if the code in its current form can solve both.  It only took an incredibly minor revision, though (something about removing leading zeroes from the input numbers).
 * [sumsmallestints.js](https://www.codewars.com/kata/558fc85d8fd1938afb000014) - 7 kyu
