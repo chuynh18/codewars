@@ -28,6 +28,8 @@ My CodeWars profile:  [https://www.codewars.com/users/chuynh18/completed](https:
     * By the same author as decompose squares, so it took me a little bit of time to parse the challenge.  Once I did, the code was straightforward, though I do use a brute force approach.  Haven't thought about whether there's a more elegant way (if there is, it likely requires more number theory than I know).
 * [mostfrequentweekdays.js](https://www.codewars.com/kata/56eb16655250549e4b0013f4) - 6 kyu
     * I never thought about how some people could tell you on the spot what the first day of any given year was.  I should have realized that 365 mod 7 is 1.
+* [multiplesof3or5.js](https://www.codewars.com/kata/514b92a657cdc65150000006) - 6 kyu
+    * Somebody has a FizzBuzz variation they really like.
 * [observedpin.js](https://www.codewars.com/kata/5263c6999e0f40dee200059d) - 4 kyu
     * I attempted this fairly early on and got stuck.  My failed brute force solution to the dice roll probability kata actually unblocked me on this kata.  However, I clearly need to study up on how I can use recursion to nest an arbitrary number of for loops (this was my first approach to incrementing the PINs I was generating.  While I ended up using a more elegant solution, I did learn more about my weaknesses and so I have an opportunity to improve).
 * [removecomments.js](https://www.codewars.com/kata/51c8e37cee245da6b40000bd) - 4 kyu
@@ -38,6 +40,9 @@ My CodeWars profile:  [https://www.codewars.com/users/chuynh18/completed](https:
     * Kind of took advantage of there being [another kata that's almost exactly the same](https://www.codewars.com/kata/525f4206b73515bffb000b21).  I don't remember if the code in its current form can solve both.  It only took an incredibly minor revision, though (something about removing leading zeroes from the input numbers).
 * [sumsmallestints.js](https://www.codewars.com/kata/558fc85d8fd1938afb000014) - 7 kyu
     * This was my third kata and I was still warming up and finding the appropriate degree of difficulty.
+* [tictactoe.js](https://www.codewars.com/kata/525caa5c1bf619d28c000335) - 5 kyu
+    * A tic-tac-toe solver.  Did this because it was low-hanging fruit, because I made [https://chuynh18.github.io/tictactoe/](https://chuynh18.github.io/tictactoe/).  Enjoy.
+    * The code is NOT DRY at all (statement is true for my solution for the kata and true for the working tic-tac-toe game).
 * [twiceasold.js](https://www.codewars.com/kata/5b853229cfde412a470000d0) - 8 kyu
     * My first kata, solved on a whim because a friend sent it to me.
     * Purely a math problem.  I solved this in the GIMP by doing elementary algebra.  You have three variables that turn into one variable (because the age of the father and son are the inputs).  This means you have one equation and one variable.
