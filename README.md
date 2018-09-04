@@ -26,6 +26,8 @@ My CodeWars profile:  [https://www.codewars.com/users/chuynh18/completed](https:
     * Please see `FALSESTART-dividestrings.js` in the `for division.js` folder for my hilariously misguided very first attempt.  Caused me to do a lot of research on why this approach would never work.  I learned more than I ever cared to about IEEE 754 floating point numbers.
 * [integersrecreationone.js](https://www.codewars.com/kata/55aa075506463dac6600010d) - 5 kyu
     * By the same author as decompose squares, so it took me a little bit of time to parse the challenge.  Once I did, the code was straightforward, though I do use a brute force approach.  Haven't thought about whether there's a more elegant way (if there is, it likely requires more number theory than I know).
+* [mostfrequentweekdays.js](https://www.codewars.com/kata/56eb16655250549e4b0013f4) - 6 kyu
+    * I never thought about how some people could tell you on the spot what the first day of any given year was.  I should have realized that 365 mod 7 is 1.
 * [observedpin.js](https://www.codewars.com/kata/5263c6999e0f40dee200059d) - 4 kyu
     * I attempted this fairly early on and got stuck.  My failed brute force solution to the dice roll probability kata actually unblocked me on this kata.  However, I clearly need to study up on how I can use recursion to nest an arbitrary number of for loops (this was my first approach to incrementing the PINs I was generating.  While I ended up using a more elegant solution, I did learn more about my weaknesses and so I have an opportunity to improve).
 * [removecomments.js](https://www.codewars.com/kata/51c8e37cee245da6b40000bd) - 4 kyu
@@ -34,3 +36,8 @@ My CodeWars profile:  [https://www.codewars.com/users/chuynh18/completed](https:
     * My solution solves for the problem presented and nothing more.
 * [sumbignums.js](https://www.codewars.com/kata/5324945e2ece5e1f32000370) - 4 kyu
     * Kind of took advantage of there being [another kata that's almost exactly the same](https://www.codewars.com/kata/525f4206b73515bffb000b21).  I don't remember if the code in its current form can solve both.  It only took an incredibly minor revision, though (something about removing leading zeroes from the input numbers).
+* [sumsmallestints.js](https://www.codewars.com/kata/558fc85d8fd1938afb000014) - 7 kyu
+    * This was my third kata and I was still warming up and finding the appropriate degree of difficulty.
+* [twiceasold.js](https://www.codewars.com/kata/5b853229cfde412a470000d0) - 8 kyu
+    * My first kata, solved on a whim because a friend sent it to me.
+    * I am extremely disappointed in this kata; it demands a positive answer.  I believe this makes the answer incorrect from a mathematical perspective.  The sign is important; it denotes whether the father either *was* or *will be* twice the age of the son.
