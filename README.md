@@ -29,6 +29,10 @@ My CodeWars profile:  [https://www.codewars.com/users/chuynh18/completed](https:
     * Please see `FALSESTART-dividestrings.js` in the `for division.js` folder for my hilariously misguided very first attempt.  Caused me to do a lot of research on why this approach would never work.  I learned more than I ever cared to about IEEE 754 floating point numbers.
 * [integersrecreationone.js](https://www.codewars.com/kata/55aa075506463dac6600010d) - 5 kyu
     * By the same author as decompose squares, so it took me a little bit of time to parse the challenge.  Once I did, the code was straightforward, though I do use a brute force approach.  Haven't thought about whether there's a more elegant way (if there is, it likely requires more number theory than I know).
+* [mathexpressions.js](https://www.codewars.com/kata/52a78825cdfc2cfc87000005) - **2 kyu**
+    * The bulk of the mathematical expression evaluation code is a slightly modified version of `calc.js`.  I just wrote some extra logic to handle parenthesis (whether nested or not).
+    * My solution is obscenely wordier than everybody else's, but they use regex and I don't.
+    * The use of declarative languages means you're relying on logic that someone else wrote!
 * [mostfrequentweekdays.js](https://www.codewars.com/kata/56eb16655250549e4b0013f4) - 6 kyu
     * I never thought about how some people could tell you on the spot what the first day of any given year was.  I should have realized that 365 mod 7 is 1.
 * [multiplesof3or5.js](https://www.codewars.com/kata/514b92a657cdc65150000006) - 6 kyu
