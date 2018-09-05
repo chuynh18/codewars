@@ -1,4 +1,4 @@
-// repurposing my solution in calc.js to take an already-parsed array as its inputs
+// repurposing my solution in calc.js to take an already-parsed array as its inputs instead of taking a string
 
 "use strict";
 

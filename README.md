@@ -32,7 +32,8 @@ My CodeWars profile:  [https://www.codewars.com/users/chuynh18/completed](https:
 * [mathexpressions.js](https://www.codewars.com/kata/52a78825cdfc2cfc87000005) - **2 kyu**
     * The bulk of the mathematical expression evaluation code is a slightly modified version of `calc.js`.  I just wrote some extra logic to handle parenthesis (whether nested or not).
     * My solution is obscenely wordier than everybody else's, but they use regex and I don't.
-    * The use of declarative languages means you're relying on logic that someone else wrote!
+    * The use of a declarative language means you're relying on logic that someone else wrote!
+        * Okay, real talk.  It's because I need to learn regex.
 * [mostfrequentweekdays.js](https://www.codewars.com/kata/56eb16655250549e4b0013f4) - 6 kyu
     * I never thought about how some people could tell you on the spot what the first day of any given year was.  I should have realized that 365 mod 7 is 1.
 * [multiplesof3or5.js](https://www.codewars.com/kata/514b92a657cdc65150000006) - 6 kyu
@@ -49,6 +50,9 @@ My CodeWars profile:  [https://www.codewars.com/users/chuynh18/completed](https:
     * Kind of took advantage of there being [another kata that's almost exactly the same](https://www.codewars.com/kata/525f4206b73515bffb000b21).  I don't remember if the code in its current form can solve both.  It only took an incredibly minor revision, though (something about removing leading zeroes from the input numbers).
 * [sumsmallestints.js](https://www.codewars.com/kata/558fc85d8fd1938afb000014) - 7 kyu
     * This was my third kata and I was still warming up and finding the appropriate degree of difficulty.
+* [thelift.js](https://www.codewars.com/kata/58905bfa1decb981da00009e) - 3 kyu
+    * I don't know why this one threw me off so much.  I made extensive use of running my script locally in Node and attaching to the Chrome debugger.  I'll have to think more about how I coded this along with my thought processes as I coded this.
+    * Part of the reason I made so many mistakes is because I once again did not read the instructions carefully.  I initially ignored this rule: `When called, the Lift will stop at a floor even if it is full, although unless somebody gets off nobody else can get on!`
 * [tictactoe.js](https://www.codewars.com/kata/525caa5c1bf619d28c000335) - 5 kyu
     * A tic-tac-toe solver.  Did this because it was low-hanging fruit, because I made [https://chuynh18.github.io/tictactoe/](https://chuynh18.github.io/tictactoe/).  Enjoy.
     * The code is NOT DRY at all (statement is true for my solution for the kata and true for the working tic-tac-toe game).

@@ -273,5 +273,4 @@ const calc = function(input) {
     // after the while loop, we're left with a mathematical expression without any parenthesis
     // so we return the result of one last calculation, which is our answer
     return calculator(split(simplified));
-
 }
