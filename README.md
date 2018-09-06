@@ -7,6 +7,8 @@ My CodeWars profile:  [https://www.codewars.com/users/chuynh18/completed](https:
 
 * [advancedmorse.js](https://www.codewars.com/kata/54b72c16cd7f5154e9000457) - 4 kyu
     * A lot of hacky conditionals in my solution.  If the test cases were more expansive, I would probably need to rethink my approach.
+* [battleship.js](https://www.codewars.com/kata/52bb6539a4cf1b12d90005b7/) - 3 kyu
+    * My solution consists of poor code due to lots of repetition.  It also isn't even complete, but the test cases for this kata are rather barebones...
 * [browsercalc.js](https://www.codewars.com/kata/581bc0629ad9ff9873000316) - 4 kyu
     * I did this one just because I wanted to get to 3 kyu in rank.  It's a variation of a problem I've already done before.
     * Also, my code for this could and should be a whole lot DRYer, but I just wanted to get it out of the way.
