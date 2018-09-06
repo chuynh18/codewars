@@ -7,6 +7,9 @@ My CodeWars profile:  [https://www.codewars.com/users/chuynh18/completed](https:
 
 * [advancedmorse.js](https://www.codewars.com/kata/54b72c16cd7f5154e9000457) - 4 kyu
     * A lot of hacky conditionals in my solution.  If the test cases were more expansive, I would probably need to rethink my approach.
+* [browsercalc.js](https://www.codewars.com/kata/581bc0629ad9ff9873000316) - 4 kyu
+    * I did this one just because I wanted to get to 3 kyu in rank.  It's a variation of a problem I've already done before.
+    * Also, my code for this could and should be a whole lot DRYer, but I just wanted to get it out of the way.
 * [calc.js](https://www.codewars.com/kata/5235c913397cbf2508000048) - 3 kyu
     * So much parsing.  Maybe I should start digging into how compilers work.
 * [commondenominators.js](https://www.codewars.com/kata/54d7660d2daf68c619000d95) - 5 kyu
@@ -29,6 +32,9 @@ My CodeWars profile:  [https://www.codewars.com/users/chuynh18/completed](https:
     * Please see `FALSESTART-dividestrings.js` in the `for division.js` folder for my hilariously misguided very first attempt.  Caused me to do a lot of research on why this approach would never work.  I learned more than I ever cared to about IEEE 754 floating point numbers.
 * [integersrecreationone.js](https://www.codewars.com/kata/55aa075506463dac6600010d) - 5 kyu
     * By the same author as decompose squares, so it took me a little bit of time to parse the challenge.  Once I did, the code was straightforward, though I do use a brute force approach.  Haven't thought about whether there's a more elegant way (if there is, it likely requires more number theory than I know).
+* [lastdigit.js](https://www.codewars.com/kata/5518a860a73e708c0a000027) - 3 kyu
+    * I saw the pattern and wrote some trashy code that passed the answer.  It's horrible and convoluted and I should be ashamed.
+    * I'm sure there's some very interesting number theory behind why numbers behave this way.  I just don't know any of it.
 * [mathexpressions.js](https://www.codewars.com/kata/52a78825cdfc2cfc87000005) - **2 kyu**
     * The bulk of the mathematical expression evaluation code is a slightly modified version of `calc.js`.  I just wrote some extra logic to handle parenthesis (whether nested or not).
     * My solution is obscenely wordier than everybody else's, but they use regex and I don't.
@@ -46,6 +52,8 @@ My CodeWars profile:  [https://www.codewars.com/users/chuynh18/completed](https:
     * My solution solves for the problem presented and nothing more.
 * [rot13.js](https://www.codewars.com/kata/530e15517bc88ac656000716) - 5 kyu
     * Not the most elegant solution.  I see a lot of other people solved this pretty creatively and/or using regex.  Still, I used the `String.fromCharCode()` method.  How many times do you get to use that method‽  How many times do you get to use the interrobang‽
+* [spiral.js](https://www.codewars.com/kata/534e01fbbb17187c7e0000c6) - 3 kyu
+    * My solution is generally correct.  It fails for spirals of size 5.  I hardcoded the correct answer just to get it out of the way.  Shame on me.
 * [sumbignums.js](https://www.codewars.com/kata/5324945e2ece5e1f32000370) - 4 kyu
     * Kind of took advantage of there being [another kata that's almost exactly the same](https://www.codewars.com/kata/525f4206b73515bffb000b21).  I don't remember if the code in its current form can solve both.  It only took an incredibly minor revision, though (something about removing leading zeroes from the input numbers).
 * [sumsmallestints.js](https://www.codewars.com/kata/558fc85d8fd1938afb000014) - 7 kyu
