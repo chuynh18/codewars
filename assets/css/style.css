@@ -1,0 +1,55 @@
+html {
+   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+   width: 70%;
+   margin: 0 auto;
+}
+
+div {
+   margin-bottom: 10px;
+}
+
+#dividendLine {
+   float: left;
+}
+
+#quotient {
+   float: left;
+   margin-left: 50px;
+   font-weight: bold;
+}
+
+#divisorLine {
+   clear: both;
+}
+
+#about, .heading {
+   font-size: 18pt;
+}
+
+.mono {
+   font-family: monospace;
+   font-weight: bold;
+   font-size: 12pt;
+   color: darkred;
+}
+
+input {
+   width: 200px;
+}
+
+.inputTitle {
+   display: inline-block;
+   width: 100px;
+}
+
+#expressionLine {
+   display: block;
+   width: 210px;
+}
+
+#expression {
+   width: 100%;
+}

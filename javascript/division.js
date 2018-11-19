@@ -489,7 +489,7 @@ function largeDiv(a, b) {
             somethingHappened = true;
         }
 
-        // let num = Math.floor(remainder/b);
+        let num = Math.floor(remainder/b);
         // console.log(`remainder: ${remainder}`);
         // console.log(`remainder: '${remainder}', divisor (b): '${b}', num: '${num}'`);
         if (!somethingHappened) {

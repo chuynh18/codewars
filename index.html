@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en-us">
+   <head>
+      <meta charset="utf-8" />
+      <title>Random Codewars code made useful</title>
+      <link rel="stylesheet" href="assets/css/style.css" />
+   </head>
+   <body>
+      <div id="about">I wrote a lot of code for Codewars and thought it would be a shame if I didn't put that code to use.  So I made some slight modifications to that code in order to show it to the world.</div><br>
+      
+      <div class="heading"><a href="https://www.codewars.com/kata/divide-numbers-as-strings">Arbitrary precision division</a></div>
+      <div>Enter an arbitrarily precise dividend and divisor and see it get divided!  If you don't understand why this is a big deal, JavaScript does not natively support arbitrary precision division, only IEEE 754 floating point division.  This means that <span class="mono">0.3/0.2 === 1.4999999999999998</span>.  On the other hand, my code returns <span class="mono">0.3/0.2 === 1.5</span>.</div>
+      <div><strong>Note that my code truncates rather than rounds!</strong></div>
+      <div class="inputLine" id="dividendLine">
+         <span class="inputTitle">Dividend:</span><input type="text" name="dividend" id="dividend">
+      </div>
+      <div id="quotient"></div>
+      <div class="inputLine" id="divisorLine">
+         <span class="inputTitle">Divisor:</span><input type="text" name="divisor" id="divisor">
+      </div>
+      <button id="divide" onclick="clickDivide();">Divide</button><br><br>
+
+      <div class="heading"><a href="https://www.codewars.com/kata/evaluate-mathematical-expression">Evaluate mathematical expression</a></div>
+      <div>Enter an arithmetic expression, meaning an expression containing any of the following operations:  addition (+), subtraction (-), multiplication (*), and division (/).  Expressions are evaluated left-to-right.  Order of operations is respected including nested parentheses.  Operations are evaluated using JavaScript's built in arithmetic operators (so you get double precision, NOT arbitrary precision).</div>
+      <div><strong>Note:  I will not parse your mathematical expression for correctness.  If you don't get the result you expect, check your expression for typos.</strong></div>
+      <div>Example:  <span class="mono">45+(23-4)*(5+(5345-331))+333 === 95739</span></div>
+      <div class="inputLine">
+         <span class="inputTitle" id="expressionLine">Enter arithmetic expression:</span><input type="text" name="expression" id="expression">
+      </div>
+      <button id="evaluate" onclick="evalExpression();">Evaluate</button><br><br>
+      <div id="expressionResult"></div>
+
+      <script src="assets/js/division.js"></script>
+      <script src="assets/js/mathexpressions.js"></script>
+      <script src="assets/js/script.js"></script>
+   </body>
+</html>
