@@ -33,11 +33,13 @@ const filterMultipleDecimals = function(input) {
 document.getElementById("dividend").addEventListener("keyup", function() {
    document.getElementById("dividend").value = allowedChars(document.getElementById("dividend").value, ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", ".", ","]);
    document.getElementById("dividend").value = filterMultipleDecimals(document.getElementById("dividend").value);
+   document.getElementById("quotient").textContent = ""
 });
 
 document.getElementById("divisor").addEventListener("keyup", function() {
    document.getElementById("divisor").value = allowedChars(document.getElementById("divisor").value, ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", ".", ","]);
    document.getElementById("divisor").value = filterMultipleDecimals(document.getElementById("divisor").value);
+   document.getElementById("quotient").textContent = ""
 });
 
 const clickDivide = function() {
@@ -61,3 +63,27 @@ const evalExpression = function() {
    const expression = document.getElementById("expression").value;
    document.getElementById("expressionResult").textContent = calc(expression);
 }
+
+const countParenthesis = function(input) {
+   let numOpen = 0;
+   let numClose = 0;
+
+   for (let i = 0; i < input.length; i++) {
+      if (input[i] === "(") {
+         numOpen++;
+      } else if (input[i] === ")") {
+         numClose++;
+      }
+   }
+
+   if (numOpen !== numClose) {
+      return "Warning:  You do not have an equal number of open and close parenthesis in your expression.";
+   } else {
+      return "";
+   }
+}
+
+document.getElementById("expression").addEventListener("keyup", function() {
+   document.getElementById("expression").value = allowedChars(document.getElementById("expression").value, ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", ".", "+", "-", "*", "/", "(", ")", " "]);
+   document.getElementById("mismatch").textContent = countParenthesis(document.getElementById("expression").value);
+});   

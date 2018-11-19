@@ -31,7 +31,7 @@ div {
    font-size: 18pt;
 }
 
-.mono {
+.mono, #mismatch {
    font-family: monospace;
    font-weight: bold;
    font-size: 12pt;
