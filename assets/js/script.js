@@ -30,16 +30,24 @@ const filterMultipleDecimals = function(input) {
    return output;
 }
 
-document.getElementById("dividend").addEventListener("keyup", function() {
+document.getElementById("dividend").addEventListener("keyup", function(event) {
    document.getElementById("dividend").value = allowedChars(document.getElementById("dividend").value, ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", ".", ","]);
    document.getElementById("dividend").value = filterMultipleDecimals(document.getElementById("dividend").value);
    document.getElementById("quotient").textContent = ""
+
+   if (event.key === "Enter") {
+      clickDivide();
+   }
 });
 
-document.getElementById("divisor").addEventListener("keyup", function() {
+document.getElementById("divisor").addEventListener("keyup", function(event) {
    document.getElementById("divisor").value = allowedChars(document.getElementById("divisor").value, ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", ".", ","]);
    document.getElementById("divisor").value = filterMultipleDecimals(document.getElementById("divisor").value);
    document.getElementById("quotient").textContent = ""
+
+   if (event.key === "Enter") {
+      clickDivide();
+   }
 });
 
 const clickDivide = function() {
@@ -83,7 +91,11 @@ const countParenthesis = function(input) {
    }
 }
 
-document.getElementById("expression").addEventListener("keyup", function() {
+document.getElementById("expression").addEventListener("keyup", function(event) {
    document.getElementById("expression").value = allowedChars(document.getElementById("expression").value, ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", ".", "+", "-", "*", "/", "(", ")", " "]);
    document.getElementById("mismatch").textContent = countParenthesis(document.getElementById("expression").value);
+
+   if (event.key === "Enter") {
+      evalExpression();
+   }
 });   
