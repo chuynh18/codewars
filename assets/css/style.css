@@ -1,5 +1,6 @@
 html {
    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+   background-color: #ccc;
 }
 
 body {
@@ -19,6 +20,7 @@ div {
    float: left;
    margin-left: 50px;
    font-weight: bold;
+   font-size: 14pt;
 }
 
 #divisorLine {
@@ -38,6 +40,8 @@ div {
 
 input {
    width: 200px;
+   background-color: #eee;
+   font-size: 12pt;
 }
 
 .inputTitle {
@@ -52,4 +56,9 @@ input {
 
 #expression {
    width: 100%;
+}
+
+#expressionResult {
+   font-size: 14pt;
+   font-weight: bold;
 }
