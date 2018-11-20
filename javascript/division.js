@@ -188,7 +188,7 @@ function largeDiv(a, b) {
 
         for (let i = 0; i < a.length; i++) {
             if (a[i] !== "0") {
-                allZeroes = false;;
+                allZeroes = false;
                 indexOfFirstNonZero = i;
                 break;
             }

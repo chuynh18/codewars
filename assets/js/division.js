@@ -184,7 +184,7 @@ function largeDiv(a, b, decimalPlaces) {
         return output;
     }
 
-    // modulo operator.  if b > a, returns a as a string.
+    // modulo operator (a mod b).  if b > a, returns a as a string.
     // else, returns the remainder (also as a string)
     // typeof a === "string",  typeof b === "string" 
     const modulo = function(a, b) {
@@ -195,7 +195,7 @@ function largeDiv(a, b, decimalPlaces) {
 
         for (let i = 0; i < a.length; i++) {
             if (a[i] !== "0") {
-                allZeroes = false;;
+                allZeroes = false;
                 indexOfFirstNonZero = i;
                 break;
             }
