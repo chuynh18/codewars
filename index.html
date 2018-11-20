@@ -27,9 +27,9 @@
       <div><strong>Operations are evaluated using JavaScript's built-in arithmetic operators.  In other words, <span class="mono">0.3/0.2 === 1.4999999999999998</span>.</strong></div>
       <div><strong>Inputted mathematical expressions are NOT parsed for correctness.  If you don't get the result you expect (e.g. unexpected <span class="mono">NaN</span>), check your expression for typos.</strong></div>
       <div><strong>The multiplication operator must be used.  e.g. <span class="mono">(3)(2)</span> will not be interpreted as <span class="mono">3*2</span>.</strong></div>
-      <div>Example:  <span class="mono">45+(23-4)*(5+(5345-331))+-333.5 === 95072.5</span></div>
+      <div>Example:  <span class="mono"> 45+(23-4)*(5+(5345-331)/2)+-333.5 === 47439.5</span></div>
       <div class="inputLine">
-         <span class="inputTitle" id="expressionLine">Enter arithmetic expression:</span><input type="text" name="expression" id="expression" placeholder="45+(23-4)*(5+(5345-331))+-333.5">
+         <span class="inputTitle" id="expressionLine">Enter arithmetic expression:</span><input type="text" name="expression" id="expression" placeholder="45+(23-4)*(5+(5345-331)/2)+-333.5">
       </div>
       <button id="evaluate" onclick="evalExpression();">Evaluate</button><br><br>
       <div id="expressionResult"></div>
