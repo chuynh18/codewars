@@ -15,7 +15,14 @@
 
 "use strict";
 
-function largeDiv(a, b) {
+function largeDiv(a, b, decimalPlaces) {
+    if (typeof decimalPlaces === "undefined") {
+        decimalPlaces = 30;
+    } else {
+        // ensure typeof decimalPlaces === "number"
+        decimalPlaces = +decimalPlaces;
+    }
+
     // console.log();
     console.log(`Computing: '${a}/${b}'`);
     let output = "";
@@ -459,7 +466,7 @@ function largeDiv(a, b) {
     // console.log(`remainder: ${remainder}`);
     let somethingHappened = false;
 
-    while (output.length < 500) {
+    while (output.length < 666) {
 
         // console.log(`output so far: '${output}'`);
         if (compare(remainder.toString(), b.toString()) === 2 && !numeratorIsLarger) {
@@ -528,7 +535,7 @@ function largeDiv(a, b) {
                 decimalFound = true;
             }
 
-            if (decimalDigitCounter === 30) {
+            if (decimalDigitCounter === decimalPlaces) {
                 output = newOutput;
                 break;
             }

@@ -50,9 +50,20 @@ document.getElementById("divisor").addEventListener("keyup", function(event) {
    }
 });
 
+document.getElementById("decimals").addEventListener("keyup", function() {
+   const decimalsValue = document.getElementById("decimals").value;
+
+   if (decimalsValue < 1) {
+      document.getElementById("decimals").value = 1;
+   } else if (decimalsValue > 100) {
+      document.getElementById("decimals").value = 100;
+   }
+})
+
 const clickDivide = function() {
    const dividend = document.getElementById("dividend").value;
    const divisor = document.getElementById("divisor").value;
+   const precision = +document.getElementById("decimals").value;
 
    dividend.replace(",", ".");
    divisor.replace(",", ".");
@@ -63,7 +74,7 @@ const clickDivide = function() {
          setTimeout(function() {document.getElementById("quotient").textContent = "Finish typing in your inputs!"}, i*200 + 100);
       }
    } else {
-      document.getElementById("quotient").textContent = largeDiv(dividend, divisor);
+      document.getElementById("quotient").textContent = largeDiv(dividend, divisor, precision);
    }
 }
 
