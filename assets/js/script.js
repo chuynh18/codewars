@@ -69,7 +69,9 @@ const clickDivide = function() {
 
 const evalExpression = function() {
    const expression = document.getElementById("expression").value;
-   document.getElementById("expressionResult").textContent = calc(expression);
+   if (countParenthesis(document.getElementById("expression").value) === "") {
+      document.getElementById("expressionResult").textContent = calc(expression);
+   }
 }
 
 const countParenthesis = function(input) {
@@ -84,8 +86,10 @@ const countParenthesis = function(input) {
       }
    }
 
-   if (numOpen !== numClose) {
-      return "Warning:  You do not have an equal number of open and close parenthesis in your expression.";
+   if (numOpen > numClose) {
+      return `You have ${numOpen-numClose} extra open parenthesis (`;
+   } else if (numOpen < numClose) {
+      return `You have ${numClose-numOpen} extra close parenthesis )`;
    } else {
       return "";
    }
