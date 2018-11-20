@@ -14,18 +14,19 @@
       <div>This means that <span class="mono">0.3/0.2 === 1.4999999999999998</span>.  On the other hand, my code returns <span class="mono">0.3/0.2 === 1.5</span>.  Don't believe me?  Open your browser's console (likely the F12 key), click on the Console tab, and try computing <span class="mono">0.3/0.2</span> for yourself!</div>
       <div><strong>Note that my code truncates rather than rounds!</strong></div>
       <div class="inputLine" id="dividendLine">
-         <span class="inputTitle">Dividend:</span><input type="text" name="dividend" id="dividend" placeholder="Enter a number">
+         <span class="inputTitle">Dividend:</span><input type="text" name="dividend" id="dividend" placeholder="0.3">
       </div>
       <div id="quotient"></div>
       <div class="inputLine" id="divisorLine">
-         <span class="inputTitle">Divisor:</span><input type="text" name="divisor" id="divisor" placeholder="Enter a number">
+         <span class="inputTitle">Divisor:</span><input type="text" name="divisor" id="divisor" placeholder="0.2">
       </div>
       <button id="divide" onclick="clickDivide();">Divide</button><br><br>
       <hr>
       <div class="heading"><a href="https://www.codewars.com/kata/evaluate-mathematical-expression">Evaluate mathematical expression</a></div>
       <div>Enter an arithmetic expression, meaning an expression containing any of the following operations:  addition (<span class="mono">+</span>), subtraction (<span class="mono">-</span>), multiplication (<span class="mono">*</span>), and division (<span class="mono">/</span>).  Expressions are evaluated left-to-right.  Order of operations is respected including nested parentheses.  Negative numbers are supported.</div>
       <div><strong>Operations are evaluated using JavaScript's built-in arithmetic operators.  In other words, <span class="mono">0.3/0.2 === 1.4999999999999998</span>.</strong></div>
-      <div><strong>Note:  I will not parse your mathematical expression for correctness.  If you don't get the result you expect, check your expression for typos.</strong></div>
+      <div><strong>Inputted mathematical expressions are NOT parsed for correctness.  If you don't get the result you expect (e.g. unexpected <span class="mono">NaN</span>), check your expression for typos.</strong></div>
+      <div><strong>The multiplication operator must be used.  e.g. <span class="mono">(3)(2)</span> will not be interpreted as <span class="mono">3*2</span>.</strong></div>
       <div>Example:  <span class="mono">45+(23-4)*(5+(5345-331))+-333.5 === 95072.5</span></div>
       <div class="inputLine">
          <span class="inputTitle" id="expressionLine">Enter arithmetic expression:</span><input type="text" name="expression" id="expression" placeholder="45+(23-4)*(5+(5345-331))+-333.5">
