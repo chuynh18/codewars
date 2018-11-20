@@ -33,7 +33,7 @@ const filterMultipleDecimals = function(input) {
 document.getElementById("dividend").addEventListener("keyup", function(event) {
    document.getElementById("dividend").value = allowedChars(document.getElementById("dividend").value, ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", ".", ","]);
    document.getElementById("dividend").value = filterMultipleDecimals(document.getElementById("dividend").value);
-   document.getElementById("quotient").textContent = ""
+   document.getElementById("quotient").innerHTML = "<br>"
 
    if (event.key === "Enter") {
       clickDivide();
@@ -43,7 +43,7 @@ document.getElementById("dividend").addEventListener("keyup", function(event) {
 document.getElementById("divisor").addEventListener("keyup", function(event) {
    document.getElementById("divisor").value = allowedChars(document.getElementById("divisor").value, ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", ".", ","]);
    document.getElementById("divisor").value = filterMultipleDecimals(document.getElementById("divisor").value);
-   document.getElementById("quotient").textContent = ""
+   document.getElementById("quotient").innerHTML = "<br>"
 
    if (event.key === "Enter") {
       clickDivide();
@@ -70,7 +70,7 @@ const clickDivide = function() {
 
    if (divisor === "" || dividend === "") {
       for (let i = 0; i < 5; i++) {
-         setTimeout(function() {document.getElementById("quotient").textContent = ""}, i*200);
+         setTimeout(function() {document.getElementById("quotient").innerHTML = "<br>"}, i*200);
          setTimeout(function() {document.getElementById("quotient").textContent = "Finish typing in your inputs!"}, i*200 + 100);
       }
    } else {
