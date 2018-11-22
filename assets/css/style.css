@@ -15,7 +15,8 @@ div {
 #quotient {
    font-weight: bold;
    font-size: 14pt;
-   height: 
+   background-color: #eee;
+   padding: 0 5px;
 }
 
 #about, .heading {
@@ -52,6 +53,8 @@ input {
 #expressionResult {
    font-size: 14pt;
    font-weight: bold;
+   background-color: #eee;
+   padding: 0 5px;
 }
 
 button {
