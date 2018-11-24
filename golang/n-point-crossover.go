@@ -1,4 +1,4 @@
-// https://www.codewars.com/kata/57339a5226196a7f90001bcf
+// https://www.codewars.com/kata/n-point-crossover
 
 package kata
 
@@ -52,11 +52,9 @@ func Crossover(ns []int, xs []int,ys []int) ([]int, []int) {
 		}
 
 		if flipped {
-			crossXs = append(crossXs, ys[i])
-			crossYs = append(crossYs, xs[i])
+			crossXs, crossYs = append(crossXs, ys[i]), append(crossYs, xs[i])
 		} else {
-			crossXs = append(crossXs, xs[i])
-			crossYs = append(crossYs, ys[i])
+			crossXs, crossYs = append(crossXs, xs[i]), append(crossYs, ys[i])
 		}
 	}
 
