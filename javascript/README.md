@@ -14,6 +14,7 @@ My CodeWars profile:  [https://www.codewars.com/users/chuynh18/completed](https:
     * Also, my code for this could and should be a whole lot DRYer, but I just wanted to get it out of the way.
 * [calc.js](https://www.codewars.com/kata/5235c913397cbf2508000048) - 3 kyu
     * So much parsing.  Maybe I should start digging into how compilers work.
+    * also see `calc2.js`
 * [commondenominators.js](https://www.codewars.com/kata/54d7660d2daf68c619000d95) - 5 kyu
     * A g964 special, so the question isn't written as clearly as it could have been, in my humble opinion.
     * My solution is hacky.  I don't know if it will work for all possible inputs.  It worked when I submitted it, though!  I'll take it.
@@ -37,7 +38,7 @@ My CodeWars profile:  [https://www.codewars.com/users/chuynh18/completed](https:
 * [lastdigit.js](https://www.codewars.com/kata/5518a860a73e708c0a000027) - 3 kyu
     * I saw the pattern and wrote some trashy code that passed the answer.  It's horrible and convoluted and I should be ashamed.
     * I'm sure there's some very interesting number theory behind why numbers behave this way.  I just don't know any of it.
-* [mathexpressions.js](https://www.codewars.com/kata/52a78825cdfc2cfc87000005) - **2 kyu**
+* [mathexpressions.js](https://www.codewars.com/kata/evaluate-mathematical-expression) - **2 kyu**
     * The bulk of the mathematical expression evaluation code is a slightly modified version of `calc.js`.  I just wrote some extra logic to handle parenthesis (whether nested or not).
     * My solution is obscenely wordier than everybody else's, but they use regex and I don't.
     * The use of a declarative language means you're relying on logic that someone else wrote!
@@ -54,6 +55,8 @@ My CodeWars profile:  [https://www.codewars.com/users/chuynh18/completed](https:
     * My solution solves for the problem presented and nothing more.
 * [rot13.js](https://www.codewars.com/kata/530e15517bc88ac656000716) - 5 kyu
     * Not the most elegant solution.  I see a lot of other people solved this pretty creatively and/or using regex.  Still, I used the `String.fromCharCode()` method.  How many times do you get to use that method‽  How many times do you get to use the interrobang‽
+* [simpler-interactive-interpreter.js](https://www.codewars.com/kata/simpler-interactive-interpreter/) = **2 kyu**
+    * builds upon [evaluate mathematical expression](https://www.codewars.com/kata/evaluate-mathematical-expression), which in turn builds upon [calculator](https://www.codewars.com/kata/calculator).
 * [spiral.js](https://www.codewars.com/kata/534e01fbbb17187c7e0000c6) - 3 kyu
     * My solution is generally correct.  It fails for spirals of size 5.  I hardcoded the correct answer just to get it out of the way.  Shame on me.
 * [sumbignums.js](https://www.codewars.com/kata/5324945e2ece5e1f32000370) - 4 kyu
