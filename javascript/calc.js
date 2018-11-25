@@ -1,4 +1,4 @@
-// https://www.codewars.com/kata/5235c913397cbf2508000048 3 kyu
+// https://www.codewars.com/kata/calculator - 3 kyu
 
 // this definitely pushed my limits, which is why the code below
 // is a FEMA-certified disaster zone
@@ -10,8 +10,6 @@
 
 const Calculator = function() {
     this.evaluate = evaluate => {
-        // console.log(evaluate);
-
         const isOperator = function(input) {
             if (input === "+" || input === "-") {
                 return 1;
@@ -23,7 +21,6 @@ const Calculator = function() {
         }
     
         let array = evaluate.split(" ");
-        // console.log(array);
     
         if (array.length === 1) {
             return array[0];
@@ -47,23 +44,18 @@ const Calculator = function() {
             if (typeof passNum === "undefined") {
                 passNum = 1;
             }
-    
-            // console.log(`Pass number ${passNum}`);
-            
+                
             for (let i = 0; i < array.length; i++) {
                 if (i === array.length - 1 && calc.op === null) {
-                    // console.log(`${i}:  1st branch; array[i] is "${array[i]}"`);
                     if (passNum === 2) {
                         calc.secondPass[calc.secondPass.length] = array[i];
                     } else {
                         calc.firstPass[calc.firstPass.length] = array[i];
                     }
                 } else if (calc.num1 === null && isOperator(array[i]) === 0) {
-                    // console.log(`${i}:  2nd branch; array[i] is "${array[i]}"`);
                     calc.num1 = array[i];
                     calc.num1FromCalculation = false;
                 } else if (calc.num1 !== null && calc.op === null) {
-                    // console.log(`${i}:  3rd branch; array[i] is "${array[i]}"`);
                     if (isOperator(array[i]) === 2) {
                         calc.op = array[i];
                     } else if (passNum === 1 && isOperator(array[i]) === 1) {
@@ -79,12 +71,10 @@ const Calculator = function() {
                         calc.op = array[i];
                     }
                 } else if (calc.op !== null && isOperator(array[i]) === 0) {
-                    // console.log(`${i}:  4th branch; array[i] is "${array[i]}"`);
                     calc.num2 = array[i];
                 }
         
                 if (calc.num1 !== null && calc.op !== null && calc.num2 !== null) {
-                    // console.log(`Calculating "${calc.num1} ${calc.op} ${calc.num2}"`)
                     if (calc.op === "*") {
                         const result = calc.num1 * calc.num2;
                         if (passNum === 2) {
@@ -143,14 +133,10 @@ const Calculator = function() {
                     calc.num2 = null;
                 }
         
-                // console.log(calc);
-                // console.log();
             }
     
             if (passNum === 1) {
-                // console.log(`end of first pass, setting array to calc.firstPass`);
                 array = [...calc.firstPass];
-                // console.log(`array: ${array}`);
             }
         }
     
@@ -161,7 +147,7 @@ const Calculator = function() {
     }
 };
 
-const calculate = new Calculator();
+// const calculate = new Calculator();
 
 // calculate.evaluate("2 + 3 * 4 / 3 - 6 / 3 * 3 + 8"); // 8
 // calculate.evaluate("2 / 2 + 3 * 4 - 6"); // 7
