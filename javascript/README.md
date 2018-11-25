@@ -55,7 +55,7 @@ My CodeWars profile:  [https://www.codewars.com/users/chuynh18/completed](https:
     * My solution solves for the problem presented and nothing more.
 * [rot13.js](https://www.codewars.com/kata/530e15517bc88ac656000716) - 5 kyu
     * Not the most elegant solution.  I see a lot of other people solved this pretty creatively and/or using regex.  Still, I used the `String.fromCharCode()` method.  How many times do you get to use that method‽  How many times do you get to use the interrobang‽
-* [simpler-interactive-interpreter.js](https://www.codewars.com/kata/simpler-interactive-interpreter/) = **2 kyu**
+* [simpler-interactive-interpreter.js](https://www.codewars.com/kata/simpler-interactive-interpreter/) - **2 kyu**
     * builds upon [evaluate mathematical expression](https://www.codewars.com/kata/evaluate-mathematical-expression), which in turn builds upon [calculator](https://www.codewars.com/kata/calculator).
 * [spiral.js](https://www.codewars.com/kata/534e01fbbb17187c7e0000c6) - 3 kyu
     * My solution is generally correct.  It fails for spirals of size 5.  I hardcoded the correct answer just to get it out of the way.  Shame on me.
