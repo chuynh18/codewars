@@ -49,6 +49,8 @@ My CodeWars profile:  [https://www.codewars.com/users/chuynh18/completed](https:
     * Somebody has a FizzBuzz variation they really like.
 * [observedpin.js](https://www.codewars.com/kata/5263c6999e0f40dee200059d) - 4 kyu
     * I attempted this fairly early on and got stuck.  My failed brute force solution to the dice roll probability kata actually unblocked me on this kata.  However, I clearly need to study up on how I can use recursion to nest an arbitrary number of for loops (this was my first approach to incrementing the PINs I was generating.  While I ended up using a more elegant solution, I did learn more about my weaknesses and so I have an opportunity to improve).
+* [parseIntReloaded.js](https://www.codewars.com/kata/parseint-reloaded/) - 4 kyu
+    * Some people have extremely succinct answers.
 * [removecomments.js](https://www.codewars.com/kata/51c8e37cee245da6b40000bd) - 4 kyu
     * In my opinion, my solution is incredibly ugly and only passed because the test cases for this kata aren't very comprehensive.
 * [rgbtohex.js](https://www.codewars.com/kata/513e08acc600c94f01000001) - 5 kyu
