@@ -1,5 +1,3 @@
-import java.util.Arrays;
-
 public class DigPow {
 
    private static int[] convertToArr(int n) {
@@ -20,8 +18,6 @@ public class DigPow {
       for (int i = 0; i < intArr.length; i++) {
          power += (int) Math.pow(intArr[i], p+i);
       }
-
-      System.out.println(power % n);
 
       if (power % n == 0) {
          return power / n;
