@@ -10,8 +10,8 @@ public class DigPow {
 
       return intArr;
    }
-	
-	public static long digPow(int n, int p) {
+
+   public static long digPow(int n, int p) {
       final int[] intArr = convertToArr(n);
       int power = 0;
 
@@ -24,6 +24,6 @@ public class DigPow {
       }
 
       return -1;
-	}
+   }
 	
 }
