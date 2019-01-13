@@ -13,14 +13,14 @@ public class DigPow {
 
    public static long digPow(int n, int p) {
       final int[] intArr = convertToArr(n);
-      int power = 0;
+      int powerSum = 0;
 
       for (int i = 0; i < intArr.length; i++) {
-         power += (int) Math.pow(intArr[i], p+i);
+         powerSum += (int) Math.pow(intArr[i], p+i);
       }
 
-      if (power % n == 0) {
-         return power / n;
+      if (powerSum % n == 0) {
+         return powerSum / n;
       }
 
       return -1;

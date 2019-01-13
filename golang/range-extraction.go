@@ -11,7 +11,7 @@ func Solution(list []int) string {
 	var newList []string
 
 	for i := 0; i < len(list); i++ {
-		var count int = 0
+		var count int
 		for j := i; j < len(list); j++ {
 			if j < len(list) - 1 && list[j] + 1 == list[j + 1] {
 				count++
@@ -22,7 +22,7 @@ func Solution(list []int) string {
 					newList = append(newList, strconv.Itoa(list[i]), strconv.Itoa(list[i+1]))
 					i += count
 				} else {
-					var concat string = strconv.Itoa(list[i]) + "-" + strconv.Itoa(list[i+count])
+					concat := strconv.Itoa(list[i]) + "-" + strconv.Itoa(list[i+count])
 					newList = append(newList, concat)
 					i += count
 				}
