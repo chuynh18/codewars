@@ -46,11 +46,11 @@ input {
    width: 210px;
 }
 
-#expression {
+#expression, #numToEng, #numToEngTitle {
    width: 100%;
 }
 
-#expressionResult {
+#expressionResult, #numToEngResult {
    font-size: 14pt;
    font-weight: bold;
    background-color: #eee;

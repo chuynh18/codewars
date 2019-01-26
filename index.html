@@ -10,6 +10,7 @@
       <a href="https://www.codewars.com/users/chuynh18/" target="_blank"><img src="https://www.codewars.com/users/chuynh18/badges/large"></a>
       <div id="about">I wrote a lot of code for <a href="https://www.codewars.com/">Codewars</a> and thought it would be a shame if I didn't put that code to use.  So I wrote a little script to expose some of that code inside this page.</div><br>
       <hr>
+
       <div class="heading"><a href="https://www.codewars.com/kata/divide-numbers-as-strings">Arbitrary precision division</a></div>
       <div>Enter an arbitrarily precise dividend and divisor and get the quotient to 30 decimal places by default and up to 100 decimal places!  If you don't understand why this is a big deal, JavaScript does not natively support arbitrary precision division.  (All numbers in JavaScript are doubles.)</div>
       <div>This means that <span class="mono">0.3/0.2 === 1.4999999999999998</span>.  On the other hand, my code returns <span class="mono">0.3/0.2 === 1.5</span>.  Don't believe me?  Open your browser's console (likely the F12 key), click on the Console tab, and try computing <span class="mono">0.3/0.2</span> for yourself!</div>
@@ -25,7 +26,9 @@
       </div>
       <button id="divide" onclick="clickDivide();">Divide</button><br><br>
       <div id="quotient"><br></div>
+
       <hr>
+
       <div class="heading"><a href="https://www.codewars.com/kata/evaluate-mathematical-expression">Evaluate arithmetic expression</a></div>
       <div>Enter an arithmetic expression, meaning an expression containing any of the following operations:  addition (<span class="mono">+</span>), subtraction (<span class="mono">-</span>), multiplication (<span class="mono">*</span>), and division (<span class="mono">/</span>).  Expressions are evaluated left-to-right.  Order of operations is respected including nested parentheses.  Negative numbers are supported.</div>
       <div><strong>Operations are evaluated using JavaScript's built-in arithmetic operators.  In other words, <span class="mono">0.3/0.2 === 1.4999999999999998</span>.</strong></div>
@@ -39,8 +42,19 @@
       <div id="expressionResult"><br></div>
       <div id="mismatch"></div>
 
+      <hr>
+
+      <div class="heading"><a href="https://www.codewars.com/kata/counting-in-english-one-two-three-dot-dot-dot-to-2-quadrillion-2-000-000-000-000-000/">Counting in English one, two, three... to 2 Quadrillion (2,000,000,000,000,000)</a></div>
+      <div>Enter a reasonably-sized number, up to about 10<sup>3000</sup> or so (including decimals separated by <span class="mono">.</span> or <span class="mono">,</span> and it will be parsed into English.</div>
+      <div class="inputLine">
+         <span class="inputTitle" id="numToEngTitle">Enter a number:</span><input type="text" name="numToEng" id="numToEng" placeholder="3999450651134560031.272788">
+      </div>
+      <button id="numToEngButton" onclick="parseNumberToEnglish();">Parse to English</button><br><br>
+      <div id="numToEngResult"><br></div>
+      
       <script src="assets/js/division.js"></script>
       <script src="assets/js/mathexpressions.js"></script>
+      <script src="assets/js/numberToEnglish.js"></script>
       <script src="assets/js/script.js"></script>
    </body>
 </html>

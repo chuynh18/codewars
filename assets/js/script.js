@@ -30,36 +30,6 @@ const filterMultipleDecimals = function(input) {
    return output;
 }
 
-document.getElementById("dividend").addEventListener("keyup", function(event) {
-   document.getElementById("dividend").value = allowedChars(document.getElementById("dividend").value, ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", ".", ","]);
-   document.getElementById("dividend").value = filterMultipleDecimals(document.getElementById("dividend").value);
-   document.getElementById("quotient").innerHTML = "<br>"
-
-   if (event.key === "Enter") {
-      clickDivide();
-   }
-});
-
-document.getElementById("divisor").addEventListener("keyup", function(event) {
-   document.getElementById("divisor").value = allowedChars(document.getElementById("divisor").value, ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", ".", ","]);
-   document.getElementById("divisor").value = filterMultipleDecimals(document.getElementById("divisor").value);
-   document.getElementById("quotient").innerHTML = "<br>"
-
-   if (event.key === "Enter") {
-      clickDivide();
-   }
-});
-
-document.getElementById("decimals").addEventListener("keyup", function() {
-   const decimalsValue = document.getElementById("decimals").value;
-
-   if (decimalsValue < 1) {
-      document.getElementById("decimals").value = 1;
-   } else if (decimalsValue > 100) {
-      document.getElementById("decimals").value = 100;
-   }
-})
-
 const clickDivide = function() {
    const dividend = document.getElementById("dividend").value;
    const divisor = document.getElementById("divisor").value;
@@ -106,6 +76,41 @@ const countParenthesis = function(input) {
    }
 }
 
+const parseNumberToEnglish = function() {
+   var number = document.getElementById("numToEng").value;
+   document.getElementById("numToEngResult").textContent = numberToEnglishWrapper(number);;
+}
+
+document.getElementById("dividend").addEventListener("keyup", function(event) {
+   document.getElementById("dividend").value = allowedChars(document.getElementById("dividend").value, ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", ".", ","]);
+   document.getElementById("dividend").value = filterMultipleDecimals(document.getElementById("dividend").value);
+   document.getElementById("quotient").innerHTML = "<br>"
+
+   if (event.key === "Enter") {
+      clickDivide();
+   }
+});
+
+document.getElementById("divisor").addEventListener("keyup", function(event) {
+   document.getElementById("divisor").value = allowedChars(document.getElementById("divisor").value, ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", ".", ","]);
+   document.getElementById("divisor").value = filterMultipleDecimals(document.getElementById("divisor").value);
+   document.getElementById("quotient").innerHTML = "<br>"
+
+   if (event.key === "Enter") {
+      clickDivide();
+   }
+});
+
+document.getElementById("decimals").addEventListener("keyup", function() {
+   const decimalsValue = document.getElementById("decimals").value;
+
+   if (decimalsValue < 1) {
+      document.getElementById("decimals").value = 1;
+   } else if (decimalsValue > 100) {
+      document.getElementById("decimals").value = 100;
+   }
+})
+
 document.getElementById("expression").addEventListener("keyup", function(event) {
    document.getElementById("expression").value = allowedChars(document.getElementById("expression").value, ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", ".", "+", "-", "*", "/", "(", ")", " "]);
    document.getElementById("mismatch").textContent = countParenthesis(document.getElementById("expression").value);
@@ -114,4 +119,9 @@ document.getElementById("expression").addEventListener("keyup", function(event) 
    if (event.key === "Enter") {
       evalExpression();
    }
-});   
+});
+
+document.getElementById("numToEng").addEventListener("keyup", function(event) {
+   document.getElementById("numToEng").value = allowedChars(document.getElementById("numToEng").value, ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", ".", ","]);
+   document.getElementById("numToEng").value = filterMultipleDecimals(document.getElementById("numToEng").value);
+});
