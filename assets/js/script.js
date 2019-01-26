@@ -128,4 +128,22 @@ document.getElementById("numToEng").addEventListener("keyup", function(event) {
    if (event.key === "Enter") {
       parseNumberToEnglish();
    }
+
+   var input = document.getElementById("numToEng").value;
+
+   if (input.includes(".")) {
+      input = input.split(".");
+   } else if (input.includes(",")) {
+      input = input.split(",");
+   }
+
+   if (typeof input === "string") {
+      input = [input];
+   }
+
+   if (input[0].length > 3003) {
+      document.getElementById("numToEngWarn").textContent = "Warning, the number you've typed in is too large.";
+   } else {
+      document.getElementById("numToEngWarn").textContent = "";
+   }
 });
