@@ -69,5 +69,3 @@ if (window.location.href.includes("?num=")) {
    document.getElementById("numToEng").value = numberFromURL;
    parseNumberToEnglish();
 }
-
-

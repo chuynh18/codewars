@@ -23,6 +23,8 @@ function numberToEnglishWrapper(input) {
       }
    }
 
+   input = stripLeadingZeroes(input);
+
    var answer = numberToEnglish(input);
 
    if (containsComma) {
@@ -30,6 +32,14 @@ function numberToEnglishWrapper(input) {
    }
 
    return answer;
+
+   function stripLeadingZeroes(n) {
+      for (var i = 0; i < n.length; i++) {
+         if (n[i] !== "0") {
+            return n.slice(i);
+         }
+      }
+   }
 }
 
 function numberToEnglish(n) {
