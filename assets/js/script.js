@@ -124,4 +124,8 @@ document.getElementById("expression").addEventListener("keyup", function(event) 
 document.getElementById("numToEng").addEventListener("keyup", function(event) {
    document.getElementById("numToEng").value = allowedChars(document.getElementById("numToEng").value, ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", ".", ","]);
    document.getElementById("numToEng").value = filterMultipleDecimals(document.getElementById("numToEng").value);
+
+   if (event.key === "Enter") {
+      parseNumberToEnglish();
+   }
 });
