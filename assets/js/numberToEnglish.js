@@ -25,6 +25,10 @@ function numberToEnglishWrapper(input) {
 
    input = stripLeadingZeroes(input);
 
+   if (typeof input === "undefined") {
+      return "";
+   }
+
    var answer = numberToEnglish(input);
 
    if (containsComma) {
@@ -197,67 +201,6 @@ function numberToEnglish(n) {
 
    // takes in object representing tokenized number and returns the number in English
    function tokenToNumberInEnglish(token) {
-      // magnitudeNames holds the short scale names and gets built out through 10 to the 3000 or so
-      var magnitudeNames = ["thousand", "million", "billion", "trillion", "quadrillion", "quintillion", "sextillion", "septillion", "octillion", "nonillion"];
-      var prefixes = ["un", "duo", "tre", "quattuor", "quin", "sex", "septen", "octo", "novem"];
-      var largeNumNames = [
-         "decillion",
-         "vigintillion",
-         "trigintillion",
-         "quadragintillion",
-         "quinquagintillion",
-         "sexagintillion",
-         "septuagintillion",
-         "octogintillion",
-         "nonagintillion",
-      ];
-      var veryLargePrefixes = [
-         "deci",
-         "viginti",
-         "triginta",
-         "quadraginta",
-         "quinquaginta",
-         "sexaginta",
-         "septuaginta",
-         "octoginta",
-         "nonaginta"
-      ];
-      var veryLargeNumNames = [
-         "centillion",
-         "ducentillion",
-         "trecentillion",
-         "quadringentillion",
-         "quingentillion",
-         "sescentillion",
-         "septingentillion",
-         "octingentillion",
-         "nongentillion"
-      ];
-
-      for (var i = 0; i < largeNumNames.length; i++) {
-         magnitudeNames[magnitudeNames.length] = largeNumNames[i];
-
-         for (var j = 0; j < prefixes.length; j++) {
-            magnitudeNames[magnitudeNames.length] = prefixes[j] + largeNumNames[i];
-         }
-      }
-
-      for (var i = 0; i < veryLargeNumNames.length; i++) {
-         magnitudeNames[magnitudeNames.length] = veryLargeNumNames[i];
-
-         for (var j = 0; j < prefixes.length; j++) {
-            magnitudeNames[magnitudeNames.length] = prefixes[j] + veryLargeNumNames[i];
-         }
-
-         for (var j = 0; j < veryLargePrefixes.length; j++) {
-            magnitudeNames[magnitudeNames.length] = veryLargePrefixes[j] + veryLargeNumNames[i];
-
-            for (var k = 0; k < prefixes.length; k++) {
-               magnitudeNames[magnitudeNames.length] = prefixes[k] + veryLargePrefixes[j] + veryLargeNumNames[i];
-            }
-         }
-      }
-
       var tripletsInToken = Object.keys(token.digits).length - 1;
       var answer = "";
 
@@ -301,3 +244,68 @@ function numberToEnglish(n) {
       return answer.trim();
    }
 }
+
+// magnitudeNames holds the short scale names and gets built out through 10 to the 3000 or so
+var magnitudeNames = ["thousand", "million", "billion", "trillion", "quadrillion", "quintillion", "sextillion", "septillion", "octillion", "nonillion"];
+
+(function() {
+   // magnitudeNames holds the short scale names and gets built out through 10 to the 3000 or so
+   var prefixes = ["un", "duo", "tre", "quattuor", "quin", "sex", "septen", "octo", "novem"];
+   var largeNumNames = [
+      "decillion",
+      "vigintillion",
+      "trigintillion",
+      "quadragintillion",
+      "quinquagintillion",
+      "sexagintillion",
+      "septuagintillion",
+      "octogintillion",
+      "nonagintillion",
+   ];
+   var veryLargePrefixes = [
+      "deci",
+      "viginti",
+      "triginta",
+      "quadraginta",
+      "quinquaginta",
+      "sexaginta",
+      "septuaginta",
+      "octoginta",
+      "nonaginta"
+   ];
+   var veryLargeNumNames = [
+      "centillion",
+      "ducentillion",
+      "trecentillion",
+      "quadringentillion",
+      "quingentillion",
+      "sescentillion",
+      "septingentillion",
+      "octingentillion",
+      "nongentillion"
+   ];
+
+   for (var i = 0; i < largeNumNames.length; i++) {
+      magnitudeNames[magnitudeNames.length] = largeNumNames[i];
+
+      for (var j = 0; j < prefixes.length; j++) {
+         magnitudeNames[magnitudeNames.length] = prefixes[j] + largeNumNames[i];
+      }
+   }
+
+   for (var i = 0; i < veryLargeNumNames.length; i++) {
+      magnitudeNames[magnitudeNames.length] = veryLargeNumNames[i];
+
+      for (var j = 0; j < prefixes.length; j++) {
+         magnitudeNames[magnitudeNames.length] = prefixes[j] + veryLargeNumNames[i];
+      }
+
+      for (var j = 0; j < veryLargePrefixes.length; j++) {
+         magnitudeNames[magnitudeNames.length] = veryLargePrefixes[j] + veryLargeNumNames[i];
+
+         for (var k = 0; k < prefixes.length; k++) {
+            magnitudeNames[magnitudeNames.length] = prefixes[k] + veryLargePrefixes[j] + veryLargeNumNames[i];
+         }
+      }
+   }
+})();

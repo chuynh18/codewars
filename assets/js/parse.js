@@ -32,7 +32,11 @@ const filterMultipleDecimals = function(input) {
 
 const parseNumberToEnglish = function() {
    var number = document.getElementById("numToEng").value;
-   document.getElementById("numToEngResult").textContent = numberToEnglishWrapper(number);;
+   if (number === "") {
+      document.getElementById("numToEngResult").textContent = "";
+   } else {
+      document.getElementById("numToEngResult").textContent = numberToEnglishWrapper(number);
+   }
 }
 
 // makes page automatically parse numbers as they're typed in (also performs user input validation and correction)
@@ -69,3 +73,5 @@ if (window.location.href.includes("?num=")) {
    document.getElementById("numToEng").value = numberFromURL;
    parseNumberToEnglish();
 }
+
+document.getElementById("numToEngResult").textContent = "";
