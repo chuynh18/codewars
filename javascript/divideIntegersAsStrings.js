@@ -1,9 +1,9 @@
 "use strict";
 
+// perform a/b, return quotient and remainder as ["${quotient}", "${remainder}"]
 function divideStrings(a, b) {
-   console.log(`a: ${a}, b: ${b}`);
-
    var quotient = "";
+   var currentDividend = "";
 
    // handle a === 0
    if (a === "0") {
@@ -15,14 +15,35 @@ function divideStrings(a, b) {
       return ["1", "0"];
    }
 
-   var isALargerThanB = aLargerThanB();
-
-   if (!isALargerThanB) {
+   if (!ALargerOrEqualToB(a, b)) {
       return ["0", a];
    }
+
+   for (var i = 0; i < a.length; i++) {
+      if (currentDividend === "0") {
+         currentDividend = a[i];
+      } else {
+         currentDividend += a[i];
+      }
+      
+      var currentQuotient = 0;
+
+      if (ALargerOrEqualToB(currentDividend, b)) {
+         while (ALargerOrEqualToB(currentDividend, b)) {
+            currentDividend = subtract(currentDividend, b);
+            currentQuotient++;
+         }
+         
+         quotient += currentQuotient;
+      } else {
+         quotient += "0";
+      }
+   }
+
+   return [stripLeadingZeros(quotient), currentDividend];
    
    // true if a > b, otherwise false
-   function aLargerThanB() {
+   function ALargerOrEqualToB(a, b) {
       if (a.length > b.length) {
          return true;
       }
@@ -44,24 +65,19 @@ function divideStrings(a, b) {
       }
 
       // a === b
-      return false;
+      return true;
    }
 }
 
 // returns a - b
 function subtract(a, b) {
-   if (typeof a === "number") {
-      a = String(a);
-   }
-
-   if (typeof b === "number") {
-      b = String(b);
+   if (a === b) {
+      return "0";
    }
 
    var answer = "";
    var carry = false;
    var answerIsNegative = false;
-   var indexOfNonZero = 0;
 
    while (a.length > b.length) {
       b = "0" + b;
@@ -97,20 +113,17 @@ function subtract(a, b) {
       }
    }
 
-   for (var i = 0; i < answer.length; i++) {
-      if (answer[i] !== "0") {
-         indexOfNonZero = i;
-         break;
-      }
-   }
-
-   answer = answer.slice(indexOfNonZero);
-
    if (answerIsNegative) {
       answer = "-" + answer;
    }
 
-   return answer;
+   return stripLeadingZeros(answer);
 }
 
-console.log(subtract("11111", "11233"));
+function stripLeadingZeros(input) {
+   for (var i = 0; i < input.length; i++) {
+      if (input[i] !== "0") {
+         return input.slice(i);
+      }
+   }
+}
